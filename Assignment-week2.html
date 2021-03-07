@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <script type="text/javascript">
+// 要求一：函式與流程控制
+// 完成以下函式，在函式中 使用迴圈 計算最小值到最大值之間，所有整數的總和。
+        function calculate(min, max){
+           sum=0;
+           for(i=min;i<=max;i++){
+               sum=sum+i;
+           }
+           console.log(sum);
+       }
+       calculate(1, 3);
+       calculate(4, 8);
+// 要求二：Python 字典與列表、JavaScript 物件與陣列
+// 完成以下函式，正確計算出員工的平均薪資，請考慮員工數量會變動的情況。
+        function avg(data){
+        var sum = 0;
+            for(var i = 0; i < data.count; i++){
+                sum = sum + data.employees[i].salary;
+                }
+                console.log(sum / data.count);
+            }
+        avg({
+            "count":3,
+            "employees":[
+                    {
+                        "name":"John",
+                        "salary":30000
+                    },
+                    {
+                        "name":"Bob",
+                        "salary":60000
+                    },
+                    {
+                        "name":"Jenny",
+                        "salary":50000
+                    }
+                        ]
+            }); // 呼叫 avg 函式
+// 要求三：演算法
+// 找出至少包含兩筆整數的列表 (Python) 或陣列 (JavaScript) 中，兩兩數字相乘後的最大值。
+        function maxProduct(nums){
+            var resul = [];
+            var a = nums[0];
+            var b = nums[1];
+            for(var i = 0;i < nums.length;i++){
+                for(var j = i + 1; j < nums.length;j++){
+                    if(nums[i] * nums[j] > a * b){
+                        a = nums[i];
+                        b = nums[j];
+                    }
+                }
+            }console.log(a * b);
+        }
+        maxProduct([5, 20, 2, 6]); // 得到 120 因為 20 和 6 相乘得到最大值
+        maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
+// 要求四 ( 請閱讀英文 )：演算法
+// Given an array of integers, show indices of the two numbers such that they add up to a
+// specific target. You can assume that each input would have exactly one solution, and you
+// can not use the same element twice.
+        function twoSum(nums, target) {
+        var result = [];  
+            for(var i = 0; i < nums.length; i++) {
+                for(var j = i + 1; j < nums.length; j++) {
+                    if(nums[i] + nums[j] === target) {
+                    result.push(i, j)
+                    } 
+                }
+            }
+            return result;
+        };
+        result=twoSum([2, 11, 7, 15], 9)
+        console.log(result) // show [0, 2] because nums[0]+nums[2] is 9
+// 要求五 ( Optional )：演算法
+// 給定只會包含 0 或 1 兩種數字的列表 (Python) 或陣列 (JavaScript)，計算連續出現 0 的最大
+// 長度。
+        function maxZeros(nums){
+            var n = 0;
+            var n_max = 0;
+            for(i = 0; i < nums.length; i++){
+                if(nums[i] == 0){
+                    n+=1;
+                    if(n > n_max){
+                        n_max = n;
+                    }
+                }else{
+                    n = 0;
+                }
+            }console.log(n_max);
+        }
+        maxZeros([0, 1, 0, 0]) // 得到 2
+        maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4
+        maxZeros([1, 1, 1, 1, 1]) // 得到 0
+    </script>
+</head>
+<body>
+</body>
+</html>
